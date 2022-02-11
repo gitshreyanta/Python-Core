@@ -34,13 +34,13 @@ def playerInput(board):
      Description:
          Function is used to take the user input.
      Parameter:
-        inp is used.
+        board is used.
      Return:
          Returns nothing
     """
-    inp = int(input("Enter a number 1-9:"))
-    if inp >=1 and inp <=9 and board[inp-1] == "-":
-        board[inp-1] = currentPlayer
+    user_input = int(input("Enter a number 1-9:"))
+    if user_input >=1 and user_input <=9 and board[user_input-1] == "-":
+        board[input-1] = currentPlayer
     else:
         print("Please choose another value the spot is already filled: ")    
         playerInput(board)
@@ -52,7 +52,7 @@ def checkHorizontal(board):
      Parameter:
         board is used.
      Return:
-         Returns the horizontal match
+         Returns the horizontal match as boolean value.
     """
     global winner 
     if board[0] == board[1] == board[2] and  board[1] != "-":
@@ -72,7 +72,7 @@ def checkVertical(board):
      Parameter:
         board is used.
      Return:
-         Returns the  vertical match
+         Returns the  vertical match as boolean value
     """
     global winner 
     if board[0] == board[3] == board[6] and  board[0] != "-":
@@ -92,7 +92,7 @@ def checkDiagonal(board):
      Parameter:
         board is used.
      Return:
-         Returns the diagonal match
+         Returns the diagonal match as boolean value
     """
     global winner 
     if board[0] == board[4] == board[8] and  board[0] != "-":
@@ -122,7 +122,7 @@ def checkWin():
      Description:
          Function is used to check the winner.
      Parameter:
-        board is used.
+        parameter is not used.
      Return:
          Returns nothing, prints the winner and board
     """
@@ -138,7 +138,7 @@ def switchPlayer():
      Description:
          Function is used to Switch between two player.
      Parameter:
-        currentplayer is used.
+        Parameter is not used.
      Return:
          Returns nothing.
     """
@@ -153,7 +153,7 @@ def computer(board):
      Description:
          Function is used to create a computer player with random function.
      Parameter:
-        Random is used.
+        board is used.
      Return:
          Returns nothing
     """
@@ -163,16 +163,16 @@ def computer(board):
             board[position] = "O"
             switchPlayer()       
 
-    
-while  gameRunning:
-    printBoard(board)
-    playerInput(board)
-    checkWin()
-    checkTie(board)
-    switchPlayer()
-    computer(board)
-    checkWin()
-    checkTie(board)
+if __name__ == "__main__":    
+    while  gameRunning:
+        printBoard(board)
+        playerInput(board)
+        checkWin()
+        checkTie(board)
+        switchPlayer()
+        computer(board)
+        checkWin()
+        checkTie(board)
 
 
 

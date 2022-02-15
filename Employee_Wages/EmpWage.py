@@ -2,8 +2,8 @@
 Author: Shreyanta Sulebhavi
 Date: 2022-02-14 10:25:00
 Last Modified by: Shreyanta Sulebhavi
-Last Modified time: 2022-02-14 21:00:00
-Title : UC8_Calculate and store the Daily Wage along with the Total Wage
+Last Modified time: 2022-02-15 11:00:00
+Title : UC9_Calculate store the Day and the Daily Wage along with the Total Wage
 """
 import random
 
@@ -36,7 +36,7 @@ def empWorkingHrs():
 def empWages(emphrs):
     """
     Description:
-        Function is used to Calculate employee Rate Per Day.
+        Function is used to Calculate employee Wage.
     Parameter:
         Employee Hours is used.
     Return:
@@ -53,18 +53,21 @@ if __name__ == "__main__":
     empRatePerHrs = 20
     numOfWorkingHrs = 100
     totalEmpHrs = 0
-    dailyWageList = []
+    daykey = 1
+    compoundWagePerDay = 0
+    compoundWage = {}
     while (totalWorkingDays < numOfWorkingDays and totalEmpHrs < numOfWorkingHrs):            
         empHrs, totalWorkingDays = empWorkingHrs() 
         totalEmpHrs = totalEmpHrs + empHrs
         wagePerDay = empWages(empHrs)
-        dailyWageList.append(wagePerDay)
+        compoundWagePerDay = wagePerDay + compoundWagePerDay
+        compoundWage[daykey] = [wagePerDay, compoundWagePerDay]
+        daykey = daykey + 1
 
     #perDayEmpWage = empWages(empHrs)
     totalEmpWage = empWages(totalEmpHrs)
-    dailyWageList.append(totalEmpWage)
     print("Total Working days in a Month is :",totalWorkingDays)    
     print("Total Working Hrs Per Month is :", totalEmpHrs)
     print("Total EmpWage per month is :",totalEmpWage)
-    print(dailyWageList)
+    print(compoundWage)
 

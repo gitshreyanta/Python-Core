@@ -3,7 +3,7 @@ Author: Shreyanta Sulebhavi
 Date: 2022-02-14 10:25:00
 Last Modified by: Shreyanta Sulebhavi
 Last Modified time: 2022-02-14 21:00:00
-Title : UC5_Calculating Wages for a Month(Assume 20 Working Day per Month)
+Title : UC6_Calculate Wages till a condition of total working hours or days is reached for a month
 """
 import random
 
@@ -12,10 +12,10 @@ def empWorkingHrs():
     Description:
         Function is used to Check Employee is Present or Absent and Half day and Calculate working days.
     Parameter:
-        nothing  is used.
+        Nothing  is used.
     Return:
         Returns Employee Hours and Total Working Days
-    """ 
+    """
     global totalWorkingDays 
     attendance = random.randint(0,2)
     #print(attendance)
@@ -51,13 +51,15 @@ if __name__ == "__main__":
     totalWorkingDays = 0
     numOfWorkingDays = 20
     empRatePerHrs = 20
+    numOfWorkingHrs = 100
     totalEmpHrs = 0
-    while (totalWorkingDays < numOfWorkingDays):            
+    while (totalWorkingDays < numOfWorkingDays and totalEmpHrs < numOfWorkingHrs):            
         empHrs, totalWorkingDays = empWorkingHrs() 
         totalEmpHrs = totalEmpHrs + empHrs
     
     #perDayEmpWage = empWages(empHrs)
     totalEmpWage = empWages(totalEmpHrs)
-    print("TotalWorking Hrs Per Month is :", totalEmpHrs)
-    print("TotalEmpWage per month is :",totalEmpWage)
+    print("Total Working days in a Month is :",totalWorkingDays)    
+    print("Total Working Hrs Per Month is :", totalEmpHrs)
+    print("Total EmpWage per month is :",totalEmpWage)
 

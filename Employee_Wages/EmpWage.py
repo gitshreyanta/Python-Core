@@ -3,7 +3,7 @@ Author: Shreyanta Sulebhavi
 Date: 2022-02-14 10:25:00
 Last Modified by: Shreyanta Sulebhavi
 Last Modified time: 2022-02-14 21:00:00
-Title : UC6_Calculate Wages till a condition of total working hours or days is reached for a month
+Title : UC8_Calculate and store the Daily Wage along with the Total Wage
 """
 import random
 
@@ -40,11 +40,11 @@ def empWages(emphrs):
     Parameter:
         Employee Hours is used.
     Return:
-        Returns Employee Wage per Day
+        Returns Employee Wage 
     """ 
     global empRatePerHrs
-    empWagePerDay = emphrs * empRatePerHrs
-    return empWagePerDay 
+    empWage = emphrs * empRatePerHrs
+    return empWage 
 
 if __name__ == "__main__":
     print("Welcome to Employee Wage Computation Program")
@@ -53,13 +53,18 @@ if __name__ == "__main__":
     empRatePerHrs = 20
     numOfWorkingHrs = 100
     totalEmpHrs = 0
+    dailyWageList = []
     while (totalWorkingDays < numOfWorkingDays and totalEmpHrs < numOfWorkingHrs):            
         empHrs, totalWorkingDays = empWorkingHrs() 
         totalEmpHrs = totalEmpHrs + empHrs
-    
+        wagePerDay = empWages(empHrs)
+        dailyWageList.append(wagePerDay)
+
     #perDayEmpWage = empWages(empHrs)
     totalEmpWage = empWages(totalEmpHrs)
+    dailyWageList.append(totalEmpWage)
     print("Total Working days in a Month is :",totalWorkingDays)    
     print("Total Working Hrs Per Month is :", totalEmpHrs)
     print("Total EmpWage per month is :",totalEmpWage)
+    print(dailyWageList)
 

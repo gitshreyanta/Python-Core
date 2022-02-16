@@ -2,7 +2,7 @@
 Author: Shreyanta Sulebhavi
 Date: 2022-02-14 10:25:00
 Last Modified by: Shreyanta Sulebhavi
-Last Modified time: 2022-02-15 11:00:00
+Last Modified time: 2022-02-15 20:00:00
 Title : UC9_Calculate store the Day and the Daily Wage along with the Total Wage
 """
 import random
@@ -60,8 +60,8 @@ if __name__ == "__main__":
         empHrs, totalWorkingDays = empWorkingHrs() 
         totalEmpHrs = totalEmpHrs + empHrs
         wagePerDay = empWages(empHrs)
-        compoundWagePerDay = wagePerDay + compoundWagePerDay
-        compoundWage[daykey] = [wagePerDay, compoundWagePerDay]
+        #compoundWagePerDay = wagePerDay + compoundWagePerDay
+        compoundWage[daykey] = wagePerDay
         daykey = daykey + 1
 
     #perDayEmpWage = empWages(empHrs)
@@ -69,5 +69,11 @@ if __name__ == "__main__":
     print("Total Working days in a Month is :",totalWorkingDays)    
     print("Total Working Hrs Per Month is :", totalEmpHrs)
     print("Total EmpWage per month is :",totalEmpWage)
+    print(daykey)
+    compoundWage['Total'] = totalEmpWage
     print(compoundWage)
+
+
+
+
 
